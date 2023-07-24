@@ -19,10 +19,8 @@ fn optimize_img(path: &DirEntry, path_str: &str) {
     let new_dir = format!("{}/{}", path_str, "optimized");
     let path = Path::new(&new_dir);
 
-    if !path.exists()
-    // && path_name.contains("optimized") && !current_data.contains(".webp")
-    {
-        println!("Create missing folder: {:?}", path);
+    if !path.exists() {
+        println!("Created missing folder: {:?}", path);
         let _ = fs::create_dir_all(&path);
     }
 
@@ -41,7 +39,7 @@ fn optimize_img(path: &DirEntry, path_str: &str) {
         }
     } else {
         if !path_name.contains("optimized") {
-            println!("Enter subfolder: {}", path_name);
+            println!("Entering subfolder: {}", path_name);
             image_optimizer(path_name);
         }
     }
